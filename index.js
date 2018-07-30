@@ -4,9 +4,13 @@ const aws = require('aws-sdk');
 
 const client = new Discord.Client();
 
-let s3 = new aws.S3({
+let config = new aws.S3({
   token: process.env.token,
-  secretAccessKey: process.env.S3_SECRET
+  general: process.env.general,
+  prefix: process.env.prefix,
+  diapo: process.env.diapo,
+  accueil: process.env.accueil,
+  dem: process.env.dem
 });
 
 client.on("ready", () => {
@@ -19,7 +23,7 @@ client.on("ready", () => {
   var regle  = "en recherche !";
   var bienvenu  = "en recherche !";
  
-  news.send(dem); //message de demarrage
+  news.send(dema); //message de demarrage
 });
 
 
@@ -231,4 +235,4 @@ if(command === "msg"){
 	})
 });
 
-client.login(token);
+client.login(config.token);
