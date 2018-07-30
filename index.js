@@ -12,7 +12,7 @@ let config = new aws.S3({
   accueil: process.env.accueil,
   dem: process.env.dem
 });
-
+console.log(`${config.toString()} et token ${config.token}`);
 client.on("ready", () => {
 	
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
