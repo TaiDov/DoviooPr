@@ -4,10 +4,8 @@ const aws = require('aws-sdk');
 
 const client = new Discord.Client();
 
-const config = require("./config.json");
-
 let s3 = new aws.S3({
-  accessKeyId: process.env.S3_KEY,
+  token: process.env.token,
   secretAccessKey: process.env.S3_SECRET
 });
 
@@ -233,4 +231,4 @@ if(command === "msg"){
 	})
 });
 
-client.login(config.token);
+client.login(token);
