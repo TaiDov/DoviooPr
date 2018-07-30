@@ -1,0 +1,15 @@
+{
+  "name": "Erobot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Clyux",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "aws-sdk": "^2.263.1",
+    "discord.js": "^11.3.2"
+  }
+}

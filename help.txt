@@ -1,0 +1,14 @@
+```prefixe : - 
+Liste des commandes : 
+- msg <texte> | Changer La Phrase De Demarrage
+- say <texte> | Faire Dire Des Phrase Au Bot
+- ping | Troll
+- mention | Ajouter/Supprimer Le Role Mentionnables
+- hower | Jeu Par Ta!
+- bot | OMG !
+- robot | OMG !
+- sing | Idee de Humouriste
+- join | Ce Joindre A Ma Communaute !
+- reglement | Reglement du Serveur
+robot cree par @Ta! - (C) Dovioo 2018 -
+```
