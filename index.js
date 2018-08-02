@@ -4,7 +4,7 @@ const aws = require('aws-sdk');
 
 const client = new Discord.Client();
 
-let config = new aws.S3({
+let s3 = new aws.S3({
   token: process.env.token,
   general: process.env.general,
   prefix: process.env.prefix,
