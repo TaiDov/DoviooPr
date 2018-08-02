@@ -78,11 +78,11 @@ client.on('message', async message => {
 		let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
 		if(!toMute) return message.channel.send("Merci d'entrer un utilisateur !");
 		
-		let role = message.guild.roles.find("id", "422441146275594280");
+		let role = message.guild.roles.find("name", "add");
 		
 		if(message.content.startsWith("-69")){
 			message.channel.bulkDelete(1);	
-		await(toMute.addRole(role));
+		await(toMute.addRole(role).catch(console.error));
 		
 		
 }return;
