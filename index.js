@@ -22,7 +22,7 @@ client.on("ready", () => {
   var regle  = "en recherche !";
   var bienvenu  = "en recherche !";
  
-  news.send(dema); //message de demarrage
+  news.send(process.env.dem); //message de process.env.demrrage
 });
 
 
@@ -48,8 +48,8 @@ function lireFichierTexte()
 	var contenu4;
 
 	contenu4 = fs.readFileSync("dem.txt", "UTF-8");
-	dema = contenu4;
-	replaceAll(",", " ",dema);
+	process.env.dem = contenu4;
+	replaceAll(",", " ",process.env.dem);
 }
 
 function replaceAll(find, replace, str) 
@@ -63,13 +63,13 @@ function replaceAll(find, replace, str)
 
 client.on('messageReactionAdd', (reaction, user, member ) =>{
 		  
-	var accueil = client.channels.get(config.accueil);
+	var accueil = client.channels.get(process.env.accueil);
     if(reaction.emoji.name === "✅" && user.id != "399625294425882625") { // accept le reglement
 	
 	accueil.send("-69 " + user);
 	let roleadd = user.guild.roles.find("id", "422441146275594280");
 	if (user.roles.has(roleadd)) {
-		var news = client.channels.get(config.general);
+		var news = client.channels.get(process.env.general);
 		news.send("Merci " + toMute + " !");}
 	}
 	
@@ -87,7 +87,7 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 
 client.on('message', async message => {
 	
-	if(message.content.startsWith(config.prefix) + "69" && message.author.bot.id != "399625294425882625" && !message.member.roles.some(r=>["Robot du Cul", "TestBot"].includes(r.name)) )return;
+	if(message.content.startsWith(process.env.prefix) + "69" && message.author.bot.id != "399625294425882625" && !message.member.roles.some(r=>["Robot du Cul", "TestBot"].includes(r.name)) )return;
 	
 		let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
 		if(!toMute) return message.channel.send("Merci d'entrer un utilisateur !");
@@ -108,7 +108,7 @@ client.on("guildMemberAdd", member => {
   let guild = member.guild;
   let user = member.user;
   let joinrole = guild.roles.find('name', 'Mentionnables');
-  var accueil = client.channels.get(config.accueil);
+  var accueil = client.channels.get(process.env.accueil);
   var salon = client.channels.get("401465181068328967");
   
   member.addRole(joinrole); //add role Mentionnables
@@ -219,7 +219,7 @@ if(command === "msg"){
 }
   else{
   
-		var id = client.channels.get(config.diapo);
+		var id = client.channels.get(process.env.diapo);
 		
 		var Attachment = (message.attachments).array();
 	}
