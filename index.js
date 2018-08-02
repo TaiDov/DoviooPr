@@ -53,7 +53,7 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
     if(reaction.emoji.name === "✅" && user.id != "399625294425882625") { // accept le reglement
 	
 	accueil.send("-69 " + user);
-	let roleadd = user.guild.roles.find("id", "422441146275594280");
+	let roleadd = user.guild.roles.find("name", "add");
 	if (user.roles.has(roleadd)) {
 		var news = client.channels.get(process.env.general);
 		news.send("Merci " + toMute + " !");}
