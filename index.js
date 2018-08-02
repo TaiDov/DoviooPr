@@ -4,14 +4,6 @@ const aws = require('aws-sdk');
 
 const client = new Discord.Client();
 
-let s3 = new aws.S3({
-  token: process.env.token,
-  general: process.env.general,
-  prefix: process.env.prefix,
-  diapo: process.env.diapo,
-  accueil: process.env.accueil,
-  dem: process.env.dem
-});
 client.on("ready", () => {
 	
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
@@ -22,7 +14,7 @@ client.on("ready", () => {
   var regle  = "en recherche !";
   var bienvenu  = "en recherche !";
  
-  news.send(process.env.dem); //message de process.env.demrrage
+  news.send(process.env.dem); //message de demrrage
 });
 
 
@@ -44,12 +36,6 @@ function lireFichierTexte()
 
 	contenu3 = fs.readFileSync("help.txt", "UTF-8");
 	helplist = contenu3; //help list
-	
-	var contenu4;
-
-	contenu4 = fs.readFileSync("dem.txt", "UTF-8");
-	process.env.dem = contenu4;
-	replaceAll(",", " ",process.env.dem);
 }
 
 function replaceAll(find, replace, str) 
@@ -210,12 +196,9 @@ if(command === "help"){
 
 if(command === "msg"){
 	const msgn = String(args);
+	heroku config:set dem=msgn;
+	message.channel.send('It\'s saved!');
 	
-	var fs = require("fs");
-	fs.writeFile('dem.txt', msgn, function (err) {
-		if (err) throw err;
-		message.channel.send('It\'s saved!');
-	});
 }
   else{
   
