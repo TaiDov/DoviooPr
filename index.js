@@ -196,7 +196,7 @@ if(command === "help"){
 
 if(command === "msg"){
 	const msgn = String(args);
-	heroku config:set dem=msgn;
+	process.env.dem = msgn;
 	message.channel.send('It\'s saved!');
 	
 }
