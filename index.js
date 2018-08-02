@@ -53,7 +53,7 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
     if(reaction.emoji.name === "✅" && user.id != "399625294425882625") { // accept le reglement
 	
 	accueil.send("-69 " + user);
-	let roleadd = user.guild.roles.find("name", "add");
+	let roleadd = message.guild.roles.find(r => r.name === "add");
 	if (user.roles.has(roleadd)) {
 		var news = client.channels.get(process.env.general);
 		news.send("Merci " + toMute + " !");}
@@ -78,7 +78,7 @@ client.on('message', async message => {
 		let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
 		if(!toMute) return message.channel.send("Merci d'entrer un utilisateur !");
 		
-		let role = client.guild.roles.find("name", "add");
+		let role = message.guild.roles.find(r => r.name === "add");
 		
 		if(message.content.startsWith("-69")){
 			message.channel.bulkDelete(1);	
