@@ -17,7 +17,7 @@ client.on("ready", () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   client.user.setGame(`Dev By Ta! (Tai)`, {type: "WATCHING"});
  
-  var news = client.channels.get(config.general);
+  var news = client.channels.get(process.env.general);
   lireFichierTexte();
   var regle  = "en recherche !";
   var bienvenu  = "en recherche !";
@@ -234,4 +234,4 @@ if(command === "msg"){
 	})
 });
 
-client.login(s3.token);
+client.login(process.env.token);
