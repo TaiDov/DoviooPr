@@ -132,9 +132,9 @@ client.on('message', message => {
 var guild2 = message.member.guild;
 let Mentionnables = guild2.roles.find('name', 'Mentionnables');
 
-if(!message.content.startsWith(config.prefix)) return;
+if(!message.content.startsWith(process.env.prefix)) return;
 
-if (message.content.startsWith('mention') || message.content.startsWith(config.prefix + 'mention') ) {
+if (message.content.startsWith('mention') || message.content.startsWith(process.env.prefix + 'mention') ) {
   if (message.member.roles.has(Mentionnables)) {
 	  message.member.removeRole(Mentionnables);
       message.channel.sendMessage('Vous n'+ "'" +'avez plus le r\u00f4le Mentionnables.');
@@ -149,7 +149,7 @@ if (message.content.startsWith('mention') || message.content.startsWith(config.p
 client.on("message", async message => {
   if(message.author.bot) return;
   
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const args = message.content.slice(process.env.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   
   if(command === "ping") {
