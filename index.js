@@ -7,7 +7,7 @@ const client = new Discord.Client();
 client.on("ready", () => {
 	
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-  client.user.setGame(`Dev By Ta! (Tai)`, {type: "WATCHING"});
+  client.user.setActivity('Dev By Ta! (Tai)', { type: 'WATCHING' });
  
   var news = client.channels.get(process.env.general);
   lireFichierTexte();
