@@ -234,4 +234,4 @@ if(command === "msg"){
 	})
 });
 
-client.login(config.token);
+client.login(s3.token);
