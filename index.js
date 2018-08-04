@@ -46,7 +46,16 @@ function replaceAll(find, replace, str)
       }
       return dem = str;
     }
-
+client.on('messageReactionAdd', (reaction, user) => {
+    if(reaction.emoji.name === "✅" && user.id != "475317547483267072"){
+        accueil.send("-69 " + user);
+	let roleadd = message.guild.roles.find(r => r.name === "valide");
+	if (!user.roles.has(roleadd)) {
+		var news = client.channels.get(process.env.general);
+		news.send("Merci " + toMute + " !");}
+	}
+    }
+});
 client.on('messageReactionAdd', (reaction, user, member ) =>{
 		  
 	var accueil = client.channels.get(process.env.accueil);
