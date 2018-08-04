@@ -55,30 +55,14 @@ client.on('messageReactionAdd', (reaction, user) => {
 		news.send("Merci " + toMute + " !");}
 	}
     }
-});
-client.on('messageReactionAdd', (reaction, user, member ) =>{
-		  
-	var accueil = client.channels.get(process.env.accueil);
-    if(reaction.emoji.name === "✅" && user.id != "475317547483267072") { // accept le reglement
-	
-	accueil.send("-69 " + user);
-	let roleadd = message.guild.roles.find(r => r.name === "valide");
-	if (!user.roles.has(roleadd)) {
-		var news = client.channels.get(process.env.general);
-		news.send("Merci " + toMute + " !");}
-	}
-	
-    if(reaction.emoji.name === "❎" && user.id != "475317547483267072") { // refuse le reglement
+	if(reaction.emoji.name === "❎" && user.id != "475317547483267072") { // refuse le reglement
 	
 	accueil.send(regle).then(function (message) {
 	message.react("✅");
     message.react("❎");
 	
-	});
-	
-}
+	});  
 });
-
 
 client.on('message', async message => {
 	
