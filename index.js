@@ -50,7 +50,7 @@ function replaceAll(find, replace, str)
 client.on('messageReactionAdd', (reaction, user, member ) =>{
 		  
 	var accueil = client.channels.get(process.env.accueil);
-    if(reaction.emoji.name === "✅" && user.id != "399625294425882625") { // accept le reglement
+    if(reaction.emoji.name === "✅" && user.id != "475317547483267072") { // accept le reglement
 	
 	accueil.send("-69 " + user);
 	let roleadd = message.guild.roles.find(r => r.name === "mention");
@@ -59,7 +59,7 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 		news.send("Merci " + toMute + " !");}
 	}
 	
-    if(reaction.emoji.name === "❎" && user.id != "399625294425882625") { // refuse le reglement
+    if(reaction.emoji.name === "❎" && user.id != "475317547483267072") { // refuse le reglement
 	
 	accueil.send(regle).then(function (message) {
 	message.react("✅");
@@ -73,7 +73,7 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 
 client.on('message', async message => {
 	
-	if(message.content.startsWith(process.env.prefix) + "69" && message.author.bot.id != "399625294425882625" && !message.member.roles.some(r=>["Robot du Cul", "TestBot"].includes(r.name)) )return;
+	if(message.content.startsWith(process.env.prefix) + "69" && message.author.bot.id != "475317547483267072" && !message.member.roles.some(r=>["bot", "TestBot"].includes(r.name)) )return;
 	
 		let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
 		if(!toMute) return message.channel.send("Merci d'entrer un utilisateur !");
