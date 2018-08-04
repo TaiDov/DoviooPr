@@ -161,7 +161,7 @@ client.on("message", async message => {
 	message.channel.send("Je suis un robot Et je n'ai pas d'âme");
   }
   if(command === "sing"){
-	message.channel.send("```Tirelipimpon sur le chiouahouah \u000ATirelipimpon avec la tête avec les bras \u000ATirelépimpon un coup en l'air un coup en bas \u000ATouche mes castagnettes, moi je touches à tes ananas !```");
+	message.channel.send("```BOM BOM TAM TAM !!!!```");
   }
    
   if(command === "purge") {
