@@ -193,7 +193,11 @@ if(command === "help"){
     message.channel.send(helplist);
 
 }
-
+if(command === "restart"){
+   message.channel.send('Restarting...')
+    .then(msg => client.destroy())
+    .then(() => client.login(process.env.token);
+   }
 if(command === "msg"){
 	const msgn = String(args);
 	process.env.dem = msgn;
