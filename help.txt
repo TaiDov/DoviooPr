@@ -10,5 +10,6 @@ Liste des commandes :
 - sing | Idee de Humouriste
 - join | Ce Joindre A Ma Communaute !
 - reglement | Reglement du Serveur
+- restart | Redemmare le Robot
 robot cree par @Ta! - (C) Dovioo 2018 -
 ```
