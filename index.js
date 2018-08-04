@@ -54,7 +54,7 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 	
 	accueil.send("-69 " + user);
 	let roleadd = message.guild.roles.find(r => r.name === "mention");
-	if (user.roles.has(roleadd)) {
+	if (!user.roles.has(roleadd)) {
 		var news = client.channels.get(process.env.general);
 		news.send("Merci " + toMute + " !");}
 	}
