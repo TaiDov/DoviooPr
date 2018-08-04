@@ -166,7 +166,7 @@ client.on("message", async message => {
    
   if(command === "purge") {
 	  
-	  if(!message.member.roles.some(r=>["Admin du cul", "Modérateur du cul"].includes(r.name)) )
+	  if(!message.member.roles.some(r=>["Simple dieu"].includes(r.name)) )
       return message.reply("Desoler, Vous n'avais pas les permissions pour faire ceci!");
 	  
     const deleteCount = parseInt(args[0], 10);
