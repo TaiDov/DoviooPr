@@ -53,7 +53,7 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
     if(reaction.emoji.name === "✅" && user.id != "399625294425882625") { // accept le reglement
 	
 	accueil.send("-69 " + user);
-	let roleadd = message.guild.roles.find(r => r.name === "add");
+	let roleadd = message.guild.roles.find(r => r.name === "mention");
 	if (user.roles.has(roleadd)) {
 		var news = client.channels.get(process.env.general);
 		news.send("Merci " + toMute + " !");}
@@ -78,7 +78,7 @@ client.on('message', async message => {
 		let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
 		if(!toMute) return message.channel.send("Merci d'entrer un utilisateur !");
 		
-		let role = message.guild.roles.find(r => r.name === "add");
+		let role = message.guild.roles.find(r => r.name === "mention");
 		
 		if(message.content.startsWith("-69")){
 			message.channel.bulkDelete(1);	
@@ -93,7 +93,7 @@ client.on('message', async message => {
 client.on("guildMemberAdd", member => {
   let guild = member.guild;
   let user = member.user;
-  let joinrole = guild.roles.find('name', 'Mentionnables');
+  let joinrole = guild.roles.find('name', 'mention');
   var accueil = client.channels.get(process.env.accueil);
   var salon = client.channels.get("401465181068328967");
   
@@ -116,7 +116,7 @@ client.on('message', message => {
   if (message.channel.type === 'dm') return;
 
 var guild2 = message.member.guild;
-let Mentionnables = guild2.roles.find('name', 'Mentionnables');
+let Mentionnables = guild2.roles.find('name', 'mention');
 
 if(!message.content.startsWith(process.env.prefix)) return;
 
