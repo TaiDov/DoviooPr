@@ -51,22 +51,14 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 		  
 	var accueil = client.channels.get(process.env.accueil);
     if(reaction.emoji.name === "✅") { // accept le reglement
-	let roleadd = message.guild.roles.find(r => r.name === "add");
-	
-	if (user.roles.has(roleadd)) {
-		return;
+	 if(!message.member.roles.some(r=>["Simple dieu"].includes(r.name)) )
+      		return message.reply("Desoler, Vous n'avais pas les permissions pour faire ceci!");
 	}
-	else{
-		var news = client.channels.get(process.env.general);
-		news.send("Merci " + toMute + " !");}
-	    accueil.send("-69 " + user);
-	}
+   	 if(reaction.emoji.name === "❎" && user.id != process.env.id) { // refuse le reglement
 	
-    if(reaction.emoji.name === "❎" && user.id != process.env.id) { // refuse le reglement
-	
-	accueil.send(regle).then(function (message) {
-	message.react("✅");
-    message.react("❎");
+		accueil.send(regle).then(function (message) {
+		message.react("✅");
+  		  message.react("❎");
 	
 	});
 	
