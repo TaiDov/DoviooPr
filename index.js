@@ -46,23 +46,30 @@ function replaceAll(find, replace, str)
       }
       return dem = str;
     }
-client.on('messageReactionAdd', (reaction, user) => {
-    if(reaction.emoji.name === "✅" && user.id != "475317547483267072"){
-        accueil.send("-69 " + user);
-	let roleadd = message.guild.roles.find(r => r.name === "valide");
-	if (!user.roles.has(roleadd)) {
+
+client.on('messageReactionAdd', (reaction, user, member ) =>{
+		  
+	var accueil = client.channels.get(process.env.accueil);
+    if(reaction.emoji.name === "✅" && user.id != "399625294425882625") { // accept le reglement
+	
+	accueil.send("-69 " + user);
+	let roleadd = message.guild.roles.find(r => r.name === "add");
+	if (user.roles.has(roleadd)) {
 		var news = client.channels.get(process.env.general);
 		news.send("Merci " + toMute + " !");}
 	}
-    
-	if(reaction.emoji.name === "❎" && user.id != "475317547483267072") { // refuse le reglement
+	
+    if(reaction.emoji.name === "❎" && user.id != "399625294425882625") { // refuse le reglement
 	
 	accueil.send(regle).then(function (message) {
 	message.react("✅");
-    message.react("❎");});
+    message.react("❎");
 	
-	 
+	});
+	
+}
 });
+
 
 client.on('message', async message => {
 	
