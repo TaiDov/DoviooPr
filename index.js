@@ -50,7 +50,7 @@ function replaceAll(find, replace, str)
 client.on('messageReactionAdd', (reaction, user, member ) =>{
 		  
 	var accueil = client.channels.get(process.env.accueil);
-    if(reaction.emoji.name === "✅" && user.id != "399625294425882625") { // accept le reglement
+    if(reaction.emoji.name === "✅" && user.id != process.env.id) { // accept le reglement
 	
 	accueil.send("-69 " + user);
 	let roleadd = message.guild.roles.find(r => r.name === "add");
@@ -59,7 +59,7 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 		news.send("Merci " + toMute + " !");}
 	}
 	
-    if(reaction.emoji.name === "❎" && user.id != "399625294425882625") { // refuse le reglement
+    if(reaction.emoji.name === "❎" && user.id != process.env.id) { // refuse le reglement
 	
 	accueil.send(regle).then(function (message) {
 	message.react("✅");
@@ -73,7 +73,7 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 
 client.on('message', async message => {
 	
-	if(message.content.startsWith(process.env.prefix) + "69" && message.author.bot.id != "475317547483267072" && !message.member.roles.some(r=>["bot", "TestBot"].includes(r.name)) )return;
+	if(message.content.startsWith(process.env.prefix) + "69" && message.author.bot.id != process.env.id && !message.member.roles.some(r=>["bot", "TestBot"].includes(r.name)) )return;
 	
 		let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
 		if(!toMute) return message.channel.send("Merci d'entrer un utilisateur !");
@@ -95,7 +95,7 @@ client.on("guildMemberAdd", member => {
   let user = member.user;
   let joinrole = guild.roles.find('name', 'mention');
   var accueil = client.channels.get(process.env.accueil);
-  var salon = client.channels.get("401465181068328967");
+  var salon = client.channels.get(process.env.salon);
   
   member.addRole(joinrole); //add role Mentionnables
   accueil.send("Bienvenue " + user + " " + bienvenu); //message de Bienvenue
@@ -152,16 +152,16 @@ client.on("message", async message => {
     message.channel.send(sayMessage);
   }
   if(command === "hower"){
-	message.channel.send("Hower un jeu cree par Ta! https://discord.gg/Cxc9ptU \u000A http://hower-game.is-great.net/");
+	message.channel.send("Hower un jeu cree par Ta! https://discord.me/dovioo \u000A http://hower-game.is-great.net/");
   }
   if(command === "join"){
-	message.channel.send("https://discord.gg/Cxc9ptU Viens Rejoindre Ma Communaute ");
+	message.channel.send("https://discord.me/dovioo Viens Rejoindre Ma Communaute ");
   }
   if(command === "robot" || command === "bot"){
 	message.channel.send("Je suis un robot Et je n'ai pas d'âme");
   }
   if(command === "sing"){
-	message.channel.send("```The ting goes skrrrahh, pap, pap, ka-ka-ka Skidiki-pap-pap, and a pu-pu-pudrrrr-boom Skya, du-du-ku-ku-dun-dun Poom, poom, you dun know BOM BOM TAM TAM !!!!```");
+	message.channel.send(process.env.sing);
   }
    
   if(command === "purge") {
