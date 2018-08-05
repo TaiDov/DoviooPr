@@ -50,13 +50,16 @@ function replaceAll(find, replace, str)
 client.on('messageReactionAdd', (reaction, user, member ) =>{
 		  
 	var accueil = client.channels.get(process.env.accueil);
-    if(reaction.emoji.name === "✅" && user.id != process.env.id) { // accept le reglement
-	
-	accueil.send("-69 " + user);
+    if(reaction.emoji.name === "✅") { // accept le reglement
 	let roleadd = message.guild.roles.find(r => r.name === "add");
+	
 	if (user.roles.has(roleadd)) {
+		return;
+	}
+	else{
 		var news = client.channels.get(process.env.general);
 		news.send("Merci " + toMute + " !");}
+	    accueil.send("-69 " + user);
 	}
 	
     if(reaction.emoji.name === "❎" && user.id != process.env.id) { // refuse le reglement
