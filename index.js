@@ -51,8 +51,8 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 		  
 	var accueil = client.channels.get(process.env.accueil);
     if(reaction.emoji.name === "✅") { // accept le reglement
-	 if(!message.member.roles.some(r=>["Simple dieu"].includes(r.name)) )
-      		return message.reply("Desoler, Vous n'avais pas les permissions pour faire ceci!");
+	 if(!message.member.roles.some(r=>["valide"].includes(r.name)) )
+      		return message.reply("Merci a toi "+user+" !");
 	}
    	 if(reaction.emoji.name === "❎" && user.id != process.env.id) { // refuse le reglement
 	
