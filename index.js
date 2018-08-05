@@ -45,7 +45,7 @@ function replaceAll(find, replace, str)
         str = str.replace(find, replace);
       }
       return dem = str;
-    };
+    }
 client.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "✅" && user.id != "475317547483267072"){
         accueil.send("-69 " + user);
@@ -62,7 +62,7 @@ client.on('messageReactionAdd', (reaction, user) => {
     message.react("❎");
 	
 	 
-}});
+});
 
 client.on('message', async message => {
 	
