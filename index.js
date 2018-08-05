@@ -54,7 +54,7 @@ client.on('messageReactionAdd', (reaction, user) => {
 		var news = client.channels.get(process.env.general);
 		news.send("Merci " + toMute + " !");}
 	}
-    }
+    
 	if(reaction.emoji.name === "❎" && user.id != "475317547483267072") { // refuse le reglement
 	
 	accueil.send(regle).then(function (message) {
