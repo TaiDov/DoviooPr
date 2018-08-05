@@ -59,7 +59,7 @@ client.on('messageReactionAdd', (reaction, user) => {
 	
 	accueil.send(regle).then(function (message) {
 	message.react("✅");
-    message.react("❎");
+    message.react("❎");});
 	
 	 
 });
