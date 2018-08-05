@@ -62,7 +62,7 @@ client.on('messageReactionAdd', (reaction, user) => {
     message.react("❎");
 	
 	 
-});
+}});
 
 client.on('message', async message => {
 	
