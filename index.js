@@ -51,7 +51,7 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 		  
 	var accueil = client.channels.get(process.env.accueil);
     if(reaction.emoji.name === "✅"  && user.id != process.env.id) { // accept le reglement
-	 if(message.member.roles.some(r=>["valide"].includes(r.name)) )
+	 if(message.member.roles.some(r=>["valide"].includes(r.name)) ){
       		return message.reply("Merci a toi "+user+" !").addRole(r);
 	}
    	 if(reaction.emoji.name === "❎" && user.id != process.env.id) { // refuse le reglement
