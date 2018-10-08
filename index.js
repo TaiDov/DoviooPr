@@ -82,7 +82,7 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 	
 		}
 
-	});
+	}
 
 client.on('message', async message => {
 	
