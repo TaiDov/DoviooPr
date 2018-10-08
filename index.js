@@ -53,7 +53,7 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
     if(reaction.emoji.name === "✅"  && user.id != process.env.id) { // accept le reglement
 	 if(message.member.roles.some(r=>["valide"].includes(r.name)) ){
       		return message.reply("Merci a toi "+user+" !").addRole(r);
-	}
+	}else{return message.reply("STOP 1 FOIS SEULEMENT!").addRole(r);}
    	 if(reaction.emoji.name === "❎" && user.id != process.env.id) { // refuse le reglement
 		accueil.send(regle).then(function (message) {
 		message.react("✅");
