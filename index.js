@@ -50,7 +50,7 @@ function replaceAll(find, replace, str)
 client.on('messageReactionAdd', (reaction, user, member ) =>{
 		  
 	var accueil = client.channels.get(process.env.accueil);
-    if(reaction.emoji.name === "✅") { // accept le reglement
+    if(reaction.emoji.name === "✅"  && user.id != process.env.id) { // accept le reglement
 	 if(!message.member.roles.some(r=>["valide"].includes(r.name)) )
       		return message.reply("Merci a toi "+user+" !").addRole(r);
 	}
@@ -199,21 +199,7 @@ if(command === "msg"){
 	message.channel.send('It\'s saved!');
 	
 }
-  else{
-  
-		var id = client.channels.get(process.env.diapo);
-		
-		var Attachment = (message.attachments).array();
-	}
 	
-	Attachment.forEach(function(attachment) {
-		
-		if(attachment.message.channel.id !="460519199706578977" && attachment.message.channel.id != "435848474366312458" && attachment.message.channel.id != "401462327871799318" && attachment.message.channel.id != "401409106499338262" && attachment.message.channel.id != "422873170073354241" && attachment.message.channel.id != "421390954482630656" && attachment.message.channel.id != "436143655158284289" && attachment.message.channel.id != "405436787046219786"){
-			id.send(attachment.url);
-		}
-		
-	
-	})
 });
 
 client.login(process.env.token);
