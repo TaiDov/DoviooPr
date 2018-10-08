@@ -55,14 +55,16 @@ function replaceAll(find, replace, str)
 client.on('messageReactionAdd', (reaction, user, member ) =>{
 		  
 	var accueil = client.channels.get(process.env.accueil);
-  
-	if(reaction.emoji.name === "✅"  && user.id != process.env.id) { // accept le reglement
 	
-		if(message.member.roles.some(r=>["valide"].includes(r.name)) )
+	if(reaction.emoji.name === "✅") { // accept le reglement
+	 
+		if(!message.member.roles.some(r=>["valide"].includes(r.name)) ){
+      		
 			return message.reply("Merci a toi "+user+" !").addRole(r);
-		
+		}
+   	
 		if(reaction.emoji.name === "❎" && user.id != process.env.id) { // refuse le reglement
-		
+			
 			accueil.send(regle).then(function (message) {
 		
 				message.react("✅");
@@ -70,11 +72,8 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 				message.react("❎");
 	
 			});
-	
 		}
-
 	});
-
 client.on('message', async message => {
 	
 	if(message.content.startsWith(process.env.prefix) + "69" && !message.member.roles.some(r=>["bot", "TestBot"].includes(r.name)) )return;
