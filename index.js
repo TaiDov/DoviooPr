@@ -58,11 +58,11 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 	
 	if(reaction.emoji.name === "✅") { // accept le reglement
 	 
-		if(message.member.roles.some(r=>["valide"].includes(r.name)) && user.id != process.env.id){
-			return message.reply("STOP 1 FOIS SEULEMENT !");
+	if(message.member.roles.some(r=>["valide"].includes(r.name)) && user.id != process.env.id){
+			 message.reply("STOP 1 FOIS SEULEMENT !");
 		}
 		else{
-			return message.reply("Merci a toi "+user+" !").addRole(r);
+			 message.reply("Merci a toi "+user+" !").addRole(r);
 		}
    	
 		if(reaction.emoji.name === "❎" && user.id != process.env.id) { // refuse le reglement
