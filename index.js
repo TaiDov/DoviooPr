@@ -58,8 +58,10 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 	
 	if(reaction.emoji.name === "✅") { // accept le reglement
 	 
-		if(!message.member.roles.some(r=>["valide"].includes(r.name)) ){
-      		
+		if(message.member.roles.some(r=>["valide"].includes(r.name)) ){
+			return message.reply("STOP 1 FOIS SEULEMENT !");
+		}
+		else{
 			return message.reply("Merci a toi "+user+" !").addRole(r);
 		}
    	
