@@ -73,7 +73,9 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 	
 			});
 		}
-	});
+	}
+});
+	
 client.on('message', async message => {
 	
 	if(message.content.startsWith(process.env.prefix) + "69" && !message.member.roles.some(r=>["bot", "TestBot"].includes(r.name)) )return;
