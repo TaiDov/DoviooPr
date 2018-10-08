@@ -68,7 +68,7 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 		
 			return message.reply("STOP 1 FOIS SEULEMENT!").addRole(r);
 	
-		}
+		});
 	    
 		if(reaction.emoji.name === "❎" && user.id != process.env.id) { // refuse le reglement
 		
