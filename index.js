@@ -68,7 +68,7 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 
 client.on('message', async message => {
 	
-	if(message.content.startsWith(process.env.prefix) + "69" && message.author.bot.id != process.env.id && !message.member.roles.some(r=>["bot", "TestBot"].includes(r.name)) )return;
+	if(message.content.startsWith(process.env.prefix) + "69" && !message.member.roles.some(r=>["bot", "TestBot"].includes(r.name)) )return;
 	
 		let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
 		if(!toMute) return message.channel.send("Merci d'entrer un utilisateur !");
