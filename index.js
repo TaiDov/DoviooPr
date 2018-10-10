@@ -137,7 +137,7 @@ client.on('message', message => {
 	if(!message.content.startsWith(process.env.prefix)) return;
 
 
-	if (message.content.startsWith('mention') || message.content.startsWith(process.env.prefix + 'mention') ) {
+	if (message.content.startsWith(process.env.prefix + 'mention') ) {
  
 		if (message.member.roles.has(Mentionnables)) {
 	 
@@ -157,10 +157,10 @@ client.on('message', message => {
 	
 			console.log(`${message.author.username} got a role`);
 
-		};
+		}
 	}
 	
-	if (message.content.startsWith('ok') || message.content.startsWith(process.env.prefix + 'ok') ) {
+	if (message.content.startsWith(process.env.prefix + 'ok') ) {
  
 		if (message.member.roles.has(rolev)) {
 			
@@ -176,7 +176,7 @@ client.on('message', message => {
 	
 			console.log(`${message.author.username} got a role`);
 
-		};
+		}
 	}
 });
 
