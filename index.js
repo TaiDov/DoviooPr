@@ -137,7 +137,7 @@ client.on('message', message => {
 
 	if (message.content.startsWith(process.env.prefix + 'mention') ) {
  
-		if (message.member.roles.has(Mentionnables)) {
+		if (message.member.roles.has(Mentionnables.id)) {
 	 
 			message.member.removeRole(Mentionnables);
     
