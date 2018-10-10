@@ -58,7 +58,7 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 	
 	if(reaction.emoji.name === "✅") { // accept le reglement
 	 
-	if(message.member.roles.some(r=>["valide"].includes(r.name)) && user.id != process.env.id){
+		if(message.member.roles.some(r=>["valide"].includes(r.name)) && user.id != process.env.id){
 			 message.reply("STOP 1 FOIS SEULEMENT !");
 		}
 		else{
@@ -283,7 +283,7 @@ client.on("message", async message => {
 	
 	if(command === "ok"){
 	 
-		if(message.member.roles.some(r=>["valide"].includes(r.name)) && user.id != process.env.id){
+		if(message.member.roles.some(r=>["valide"].includes(r.name)) && user.id != client.id){
 			 message.reply("STOP 1 FOIS SEULEMENT !");
 		}
 		else{
