@@ -175,7 +175,7 @@ client.on('message', message => {
 
 	if (message.content.startsWith(process.env.prefix + 'ok') ) {
  
-		if (message.member.roles.has(rolev)) {
+		if (message.member.roles.has(rolev.id)) {
 			
 			message.channel.sendMessage('STOP 1 FOIS SEULEMENT !');
  
