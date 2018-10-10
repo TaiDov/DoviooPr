@@ -173,7 +173,7 @@ client.on('message', message => {
 	if(!message.content.startsWith(process.env.prefix)) return;
 
 
-	if (message.content.startsWith(process.env.prefix + 'mention') ) {
+	if (message.content.startsWith(process.env.prefix + 'ok') ) {
  
 		if (message.member.roles.has(rolev)) {
 			
