@@ -12,4 +12,6 @@ Les regles sont simples:
 
 Il y a plusieurs grades selon votre activité! Apprenti(e), Confirmé(e) et Maitre. Vous pouvez aussi faire partie des Yaoistes ou Yuristes, hésitez pas à demander une promotion si vous pensez le mériter.
 
-Derniere chose, si vous voulez créer un salon dans la catégorie Licences, demandez le a un Admin ou un Modo, on peux en créer autant que vous voulez!```
+Derniere chose, si vous voulez créer un salon dans la catégorie Licences, demandez le a un Admin ou un Modo, on peux en créer autant que vous voulez!
+(fait -ok pour valider ^^)
+```
