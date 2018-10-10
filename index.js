@@ -282,11 +282,9 @@ client.on("message", async message => {
 	}
 	
 	if(command === "ok"){
-	 	
-		let rolev = guild.roles.find('name', 'valide');
 
 		if(!message.member.roles.some(r=>["valide"].includes(r.name))){
-			message.reply("Merci a toi !").addRole(rolev);
+			message.reply("Merci a toi !").addRole(client.roles.find('name', 'valide'));
 		}
 		else{
 			message.reply("STOP 1 FOIS SEULEMENT !");
