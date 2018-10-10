@@ -131,8 +131,6 @@ client.on('message', message => {
 	var guild2 = message.member.guild;
 
 	let Mentionnables = guild2.roles.find('name', 'mention');
-	
-	let rolev = guild2.roles.find('name', 'valide');
 
 	if(!message.content.startsWith(process.env.prefix)) return;
 
@@ -159,8 +157,23 @@ client.on('message', message => {
 
 		}
 	}
-	
-	if (message.content.startsWith(process.env.prefix + 'ok') ) {
+});
+
+client.on('message', message => {
+
+	if (message.author.bot) return;
+ 
+	if (message.channel.type === 'dm') return;
+
+
+	var guild2 = message.member.guild;
+
+	let rolev = guild2.roles.find('name', 'valide');
+
+	if(!message.content.startsWith(process.env.prefix)) return;
+
+
+	if (message.content.startsWith(process.env.prefix + 'mention') ) {
  
 		if (message.member.roles.has(rolev)) {
 			
