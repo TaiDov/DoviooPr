@@ -62,7 +62,7 @@ client.on('messageReactionAdd', (reaction, user, member ) =>{
 			 message.reply("STOP 1 FOIS SEULEMENT !");
 		}
 		else{
-			 message.reply("Merci a toi "+user+" !").addRole(r);
+			 message.reply("Merci a toi !").addRole(r);
 		}
    	
 		if(reaction.emoji.name === "❎" && user.id != client.id) { // refuse le reglement
@@ -283,11 +283,11 @@ client.on("message", async message => {
 	
 	if(command === "ok"){
 	 
-		if(message.member.roles.some(r=>["valide"].includes(r.name))){
-			 message.reply("STOP 1 FOIS SEULEMENT !");
+		if(!message.member.roles.some(r=>["valide"].includes(r.name))){
+			message.reply("Merci a toi !").addRole(r);
 		}
 		else{
-			 message.reply("Merci a toi "+message.author.name+" !").addRole(r);
+			message.reply("STOP 1 FOIS SEULEMENT !");
 		}
    	   
 	}
