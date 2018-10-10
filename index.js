@@ -44,13 +44,13 @@ function lireFichierTexte()
 }
 
 function replaceAll(find, replace, str) 
-    {
+{
       while( str.indexOf(find) > -1)
       {
         str = str.replace(find, replace);
       }
       return dem = str;
-    }
+}
 
 client.on('messageReactionAdd', (reaction, user, member ) =>{
 		  
@@ -279,6 +279,17 @@ client.on("message", async message => {
 	
 		message.channel.send('It\'s saved!');
 
+	}
+	
+	if(command === "ok"){
+	 
+		if(message.member.roles.some(r=>["valide"].includes(r.name)) && user.id != process.env.id){
+			 message.reply("STOP 1 FOIS SEULEMENT !");
+		}
+		else{
+			 message.reply("Merci a toi "+user+" !").addRole(r);
+		}
+   	   
 	}
 	
 });
