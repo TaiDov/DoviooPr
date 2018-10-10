@@ -131,7 +131,8 @@ client.on('message', message => {
 	var guild2 = message.member.guild;
 
 	let Mentionnables = guild2.roles.find('name', 'mention');
-
+	
+	let rolev = guild2.roles.find('name', 'valide');
 
 	if(!message.content.startsWith(process.env.prefix)) return;
 
@@ -153,6 +154,25 @@ client.on('message', message => {
 			message.member.addRole(Mentionnables);
 	
 			message.channel.sendMessage('Vous avez maintenant le r\u00f4le Mentionnables.');
+	
+			console.log(`${message.author.username} got a role`);
+
+		};
+	}
+	
+	if (message.content.startsWith('ok') || message.content.startsWith(process.env.prefix + 'ok') ) {
+ 
+		if (message.member.roles.has(rolev)) {
+			
+			message.channel.sendMessage('STOP 1 FOIS SEULEMENT !');
+ 
+		}
+ 
+		else {
+	
+			message.member.addRole(rolev);
+	
+			message.channel.reply('Merci a toi !');
 	
 			console.log(`${message.author.username} got a role`);
 
