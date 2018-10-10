@@ -185,7 +185,7 @@ client.on('message', message => {
 	
 			message.member.addRole(rolev);
 	
-			message.channel.reply('Merci a toi !');
+			message.reply('Merci a toi !');
 	
 			console.log(`${message.author.username} got a role`);
 
