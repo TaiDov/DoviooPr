@@ -194,6 +194,12 @@ client.on("message", async message => {
 
 	}
   
+	if(command === "pacman"){
+	
+		message.channel.send("PacMan un jeu cree par Ta! https://discord.me/dovioo \u000A http://re.22web.org/?k=rz84");
+
+	}
+	
 	if(command === "join"){
 	
 		message.channel.send("https://discord.me/dovioo Viens Rejoindre Ma Communaute ");
