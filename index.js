@@ -283,7 +283,7 @@ client.on("message", async message => {
 	
 	if(command === "ok"){
 	 	
-		let rolev = guild.roles.find('name', 'mention');
+		let rolev = guild.roles.find('name', 'valide');
 
 		if(!message.member.roles.some(r=>["valide"].includes(r.name))){
 			message.reply("Merci a toi !").addRole(rolev);
