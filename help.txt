@@ -2,8 +2,8 @@
 Liste des commandes : 
 - say <texte> | Faire Dire Des Phrase Au Bot
 - ping | Troll
-- panel : http://dovioo.is-great.net/admin
-- site : http://dovioo.is-great.net
+- panel : url
+- site : url
 - restart | Redemmare le Robot
 robot cree par @Ta! - (C) Dovioo 2018 -
 ```
