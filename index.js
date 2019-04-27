@@ -8,7 +8,7 @@ client.on("ready", () => {
 	
 	console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
  
-	client.user.setActivity('Dev By Ta! (Tai)', { type: 'STREAMING' });
+	client.user.setActivity('Dev By Ta! (Tai)' + process.env.prefix + 'help', { type: 'STREAMING' });
  
  
 	var news = client.channels.get(process.env.general);
@@ -18,8 +18,6 @@ client.on("ready", () => {
 	var regle  = "en recherche !";
  
 	var bienvenu  = "en recherche !";
- 
-	news.send(process.env.dem); //message de demrrage
 });
 
 
@@ -51,75 +49,6 @@ function replaceAll(find, replace, str)
       }
       return dem = str;
 }
-
-client.on('messageReactionAdd', (reaction, user, member ) =>{
-		  
-	var accueil = client.channels.get(process.env.accueil);
-	
-	if(reaction.emoji.name === "✅") { // accept le reglement
-	 
-		if(message.member.roles.some(r=>["valide"].includes(r.name)) && user.id != client.id){
-			 message.reply("STOP 1 FOIS SEULEMENT !");
-		}
-		else{
-			 message.reply("Merci a toi !").addRole(r);
-		}
-   	
-		if(reaction.emoji.name === "❎" && user.id != client.id) { // refuse le reglement
-			
-			accueil.send(regle).then(function (message) {
-		
-				message.react("✅");
-  		
-				message.react("❎");
-	
-			});
-		}
-	}
-});
-	
-client.on('message', async message => {
-	
-	if(message.content.startsWith(process.env.prefix) + "69" && !message.member.roles.some(r=>["bot", "TestBot"].includes(r.name)) )return;
-	
-		let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-		if(!toMute) return message.channel.send("Merci d'entrer un utilisateur !");
-		
-		let role = message.guild.roles.find(r => r.name === "valide");
-		
-		if(message.content.startsWith("-69")){
-			message.channel.bulkDelete(1);	
-		await(toMute.addRole(role).catch(console.error));
-
-		}return;
-
-});
-
-client.on("guildMemberAdd", member => {
- 
-	let guild = member.guild;
- 
-	let user = member.user;
- 
-	let joinrole = guild.roles.find('name', 'mention');
-
-	var accueil = client.channels.get(process.env.accueil);
-
-	var salon = client.channels.get(process.env.salon);
-  
-	member.addRole(joinrole); //add role Mentionnables
- 
-	accueil.send("Bienvenue " + user + " " + bienvenu); //message de Bienvenue
-  
-	accueil.send(regle).then(function (message) {
-	  message.react("✅");
-	  message.react("❎");
-	
-	});
-	
-	console.log(user.username + " (" + user + ") joined " + guild.name + " (" + guild + ")");
-
-});
 
 client.on('message', message => {
 
