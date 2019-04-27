@@ -8,7 +8,7 @@ client.on("ready", () => {
 	
 	console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
  
-	client.user.setActivity('Dev By Ta! (Tai)' + process.env.prefix + 'help', { type: 'STREAMING' });
+	client.user.setActivity('Dev By Ta! (Tai) | ' + process.env.prefix + 'help', { type: 'STREAMING' });
  
  
 	var news = client.channels.get(process.env.general);
@@ -62,64 +62,6 @@ client.on('message', message => {
 	let Mentionnables = guild2.roles.find('name', 'mention');
 
 	if(!message.content.startsWith(process.env.prefix)) return;
-
-
-	if (message.content.startsWith(process.env.prefix + 'mention') ) {
- 
-		if (message.member.roles.has(Mentionnables.id)) {
-	 
-			message.member.removeRole(Mentionnables);
-    
-			message.channel.sendMessage('Vous n'+ "'" +'avez plus le r\u00f4le Mentionnables.');
-     
-			console.log(`${message.author.username} already has role`);
- 
-		}
- 
-		else {
-	
-			message.member.addRole(Mentionnables);
-	
-			message.channel.sendMessage('Vous avez maintenant le r\u00f4le Mentionnables.');
-	
-			console.log(`${message.author.username} got a role`);
-
-		}
-	}
-});
-
-client.on('message', message => {
-
-	if (message.author.bot) return;
- 
-	if (message.channel.type === 'dm') return;
-
-
-	var guild2 = message.member.guild;
-
-	let rolev = guild2.roles.find('name', 'valide');
-
-	if(!message.content.startsWith(process.env.prefix)) return;
-
-
-	if (message.content.startsWith(process.env.prefix + 'ok') ) {
- 
-		if (message.member.roles.has(rolev.id)) {
-			
-			message.channel.sendMessage('STOP 1 FOIS SEULEMENT !');
- 
-		}
- 
-		else {
-	
-			message.member.addRole(rolev);
-	
-			message.reply('Merci a toi !');
-	
-			console.log(`${message.author.username} got a role`);
-
-		}
-	}
 });
 
 client.on("message", async message => {
@@ -149,35 +91,18 @@ client.on("message", async message => {
 		message.channel.send(sayMessage);
   
 	}
- 
-	if(command === "hower"){
 	
-		message.channel.send("Hower un jeu cree par Ta! https://discord.me/dovioo \u000A http://hower-game.is-great.net/");
+	if(command === "panel") {
 
-	}
+		message.channel.send("http://dovioo.is-great.net/admin");
   
-	if(command === "pacman"){
+	}
 	
-		message.channel.send("PacMan un jeu cree par Ta! https://discord.me/dovioo \u000A http://re.22web.org/?k=rz84");
+	
+	if(command === "site") {
 
-	}
-	
-	if(command === "join"){
-	
-		message.channel.send("https://discord.me/dovioo Viens Rejoindre Ma Communaute ");
- 
-	}
- 
-	if(command === "robot" || command === "bot"){
-	
-		message.channel.send("Je suis un robot Et je n'ai pas d'âme");
- 
-	}
+		message.channel.send("http://dovioo.is-great.net/");
   
-	if(command === "sing"){
-	
-		message.channel.send(process.env.sing);
- 
 	}
    
 	if(command === "purge") {
@@ -207,16 +132,6 @@ client.on("message", async message => {
 			.catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   
 	}
- 
-	if(command === "reglement"){
-	
-		message.channel.send(regle).then(function (message) {
-	
-			message.react("✅");
-    
-			message.react("❎");	
-		});
-	}
   
 	if(command === "help"){	
     
@@ -232,17 +147,6 @@ client.on("message", async message => {
 			.then(() => client.login(process.env.token));
   
 	}
-
-	if(command === "msg"){
-	
-		const msgn = String(args);
-	
-		process.env.dem = msgn;
-	
-		message.channel.send('It\'s saved!');
-
-	}
-	
 });
 
 	client.login(process.env.token);
