@@ -93,14 +93,14 @@ client.on("message", async message => {
 	}
 	
 	if(command === "panel") {
-
+		message.delete();
 		message.channel.send("http://dovioo.is-great.net/admin");
   
 	}
 	
 	
 	if(command === "site") {
-
+		message.delete();
 		message.channel.send("http://dovioo.is-great.net/");
   
 	}
